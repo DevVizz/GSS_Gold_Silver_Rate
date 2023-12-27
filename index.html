@@ -28,7 +28,7 @@
 </head>
 <body>
     <h1>Gyasiram Shankarlal Swarnkar</h1>
-    <h2>Gold and Silver Rate</h2>
+    <h2>Gold and Silver Price</h2>
     <p id="currentDate"></p>
     <div id="prices">
         <div class="price" id="gold24k"></div>
@@ -43,11 +43,11 @@
             var currentDate = new Date();
             var formattedDate = currentDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-            var gold24kPrice = 63000;
-            var gold22kPrice = calculateGoldPrice(91.6);
-            var gold20kPrice = calculateGoldPrice(83.3);
-            var gold18kPrice = calculateGoldPrice(75);
-            var silverPrice = 76000;
+            var gold24kPrice = 60000; // Assuming 65000 as the base gold price
+            var gold22kPrice = calculateGoldPrice(22, gold24kPrice);
+            var gold20kPrice = calculateGoldPrice(20, gold24kPrice);
+            var gold18kPrice = calculateGoldPrice(18, gold24kPrice);
+            var silverPrice = 78000;
 
             document.getElementById('currentDate').innerHTML = 'Today\'s Date: ' + formattedDate;
             document.getElementById('gold24k').innerHTML = 'Gold 24K Price: ₹' + gold24kPrice;
@@ -57,8 +57,8 @@
             document.getElementById('silver').innerHTML = 'Silver 100% Price: ₹' + silverPrice;
         }
 
-        function calculateGoldPrice(purity) {
-            return Math.round(65000 * purity / 100); // Assuming 65000 as the base gold price
+        function calculateGoldPrice(purity, baseGoldPrice) {
+            return Math.round(baseGoldPrice * purity / 24);
         }
 
         // Initial prices update when the page loads
