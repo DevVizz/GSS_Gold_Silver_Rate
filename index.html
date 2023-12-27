@@ -6,12 +6,32 @@
     <title>Gyasiram Shankarlal Swarnkar</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.pinimg.com/564x/ca/1d/b0/ca1db09d031f923953a885e46fdbf717.jpg'); /* Replace with your background image */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
 
         h1 {
-            color: #333;
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+
+        #currentDate {
+            font-size: 1.2em;
+            margin-bottom: 1.5em;
         }
 
         #prices {
@@ -21,21 +41,47 @@
         }
 
         .price {
-            font-size: 20px;
-            margin-bottom: 10px;
+            font-size: 1.5em;
+            margin-bottom: 1em;
+        }
+
+        .texture {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('image.jpg') repeat; /* Replace with your texture image */
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2em;
+        }
+
+        .gold-image, .silver-image {
+            width: 100px; /* Adjust the size of the images */
+            height: auto;
         }
     </style>
 </head>
 <body>
-    <h1>Gyasiram Shankarlal Swarnkar</h1>
-    <h2>Gold and Silver Price</h2>
-    <p id="currentDate"></p>
-    <div id="prices">
-        <div class="price" id="gold24k"></div>
-        <div class="price" id="gold22k"></div>
-        <div class="price" id="gold20k"></div>
-        <div class="price" id="gold18k"></div>
-        <div class="price" id="silver"></div>
+    <div class="texture"></div>
+    <div>
+        <h1>Gyasiram Shankarlal Swarnkar</h1>
+        <h2>Gold and Silver Price</h2>
+        <p id="currentDate"></p>
+        <div id="prices">
+            <div class="price" id="gold24k"></div>
+            <div class="price" id="gold22k"></div>
+            <div class="price" id="gold20k"></div>
+            <div class="price" id="gold18k"></div>
+            <div class="price" id="silver"></div>
+        </div>
+        <div class="image-container">
+            
+        </div>
     </div>
 
     <script>
