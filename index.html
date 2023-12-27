@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gyasiram Shankarlal Swarnkar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #prices {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gyasiram Shankarlal Swarnkar</h1>
+    <h2>Gold and Silver Rate</h2>
+    <p id="currentDate"></p>
+    <div id="prices">
+        <div class="price" id="gold24k"></div>
+        <div class="price" id="gold22k"></div>
+        <div class="price" id="gold20k"></div>
+        <div class="price" id="gold18k"></div>
+        <div class="price" id="silver"></div>
+    </div>
+
+    <script>
+        function updatePrices() {
+            var currentDate = new Date();
+            var formattedDate = currentDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+            var gold24kPrice = 65000;
+            var gold22kPrice = calculateGoldPrice(91.6);
+            var gold20kPrice = calculateGoldPrice(83.3);
+            var gold18kPrice = calculateGoldPrice(75);
+            var silverPrice = 78000;
+
+            document.getElementById('currentDate').innerHTML = 'Today\'s Date: ' + formattedDate;
+            document.getElementById('gold24k').innerHTML = 'Gold 24K Price: ₹' + gold24kPrice;
+            document.getElementById('gold22k').innerHTML = 'Gold 22K Price: ₹' + gold22kPrice;
+            document.getElementById('gold20k').innerHTML = 'Gold 20K Price: ₹' + gold20kPrice;
+            document.getElementById('gold18k').innerHTML = 'Gold 18K Price: ₹' + gold18kPrice;
+            document.getElementById('silver').innerHTML = 'Silver 100% Price: ₹' + silverPrice;
+        }
+
+        function calculateGoldPrice(purity) {
+            return Math.round(65000 * purity / 100); // Assuming 65000 as the base gold price
+        }
+
+        // Initial prices update when the page loads
+        updatePrices();
+    </script>
+</body>
+</html>
