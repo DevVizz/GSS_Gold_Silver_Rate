@@ -43,11 +43,11 @@
             var currentDate = new Date();
             var formattedDate = currentDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-            var gold24kPrice = 60000; // Assuming 65000 as the base gold price
+            var gold24kPrice = 63000; // Assuming 65000 as the base gold price
             var gold22kPrice = calculateGoldPrice(22, gold24kPrice);
             var gold20kPrice = calculateGoldPrice(20, gold24kPrice);
             var gold18kPrice = calculateGoldPrice(18, gold24kPrice);
-            var silverPrice = 78000;
+            var silverPrice = 74500;
 
             document.getElementById('currentDate').innerHTML = 'Today\'s Date: ' + formattedDate;
             document.getElementById('gold24k').innerHTML = 'Gold 24K Price: ₹' + gold24kPrice;
