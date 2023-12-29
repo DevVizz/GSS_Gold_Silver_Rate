@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gyasiram Shankarlal Swarnkar</title>
+    <link rel="icon" href="https://i.pinimg.com/736x/3a/15/2b/3a152bf5930faeb86cb2b9dc97e1b9d9.jpg" type="image/x-icon">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.pinimg.com/564x/ca/1d/b0/ca1db09d031f923953a885e46fdbf717.jpg'); /* Replace with your background image */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.pinimg.com/564x/ca/1d/b0/ca1db09d031f923953a885e46fdbf717.jpg');
             background-size: cover;
             background-position: center;
             color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
             height: 100vh;
+            position: relative;
         }
 
         h1 {
@@ -27,14 +30,26 @@
         h2 {
             font-size: 2em;
             margin-bottom: 1em;
+            text-align: center;
         }
 
         #currentDate {
             font-size: 1.2em;
             margin-bottom: 1.5em;
+            display: flex;
+            align-items: center;
+        }
+
+        #currentDate img {
+            width: 100px; /* Adjust the size of the image */
+            height: auto;
+            margin-right: 10px;
         }
 
         #prices {
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -49,7 +64,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: url('image.jpg') repeat; /* Replace with your texture image */
+            background: url('image.jpg') repeat;
             opacity: 0.2;
             z-index: -1;
         }
@@ -61,8 +76,15 @@
         }
 
         .gold-image, .silver-image {
-            width: 100px; /* Adjust the size of the images */
+            width: 100px;
             height: auto;
+        }
+
+        #adminInfo {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 0.8em;
         }
     </style>
 </head>
@@ -70,46 +92,54 @@
     <div class="texture"></div>
     <div>
         <h1>Gyasiram Shankarlal Swarnkar</h1>
-        <h2>Gold and Silver Price</h2>
+        <h2>Gold and Silver Rate</h2>
         <h3>Rate updates daily after 1pm</h3>
-        <p id="currentDate"></p>
+        <p id="currentDate">
+            <img src="https://i.pinimg.com/736x/3a/15/2b/3a152bf5930faeb86cb2b9dc97e1b9d9.jpg" alt="Calendar Icon">
+            <span id="dateText"></span>
+        </p>
         <div id="prices">
             <div class="price" id="gold24k"></div>
             <div class="price" id="gold22k"></div>
             <div class="price" id="gold20k"></div>
             <div class="price" id="gold18k"></div>
+            <div class="price" id="gold85"></div>
             <div class="price" id="silver"></div>
         </div>
         <div class="image-container">
-            
+            <!-- Add your image here -->
         </div>
     </div>
 
     <script>
         function updatePrices() {
-            var currentDate = new Date();
-            var formattedDate = currentDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            // Manual date input (update as needed)
+            var manualDate = new Date('2023-12-29');
+            var formattedDate = manualDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-            var gold24kPrice = 63400; // Assuming 65000 as the base gold price
-            var gold22kPrice = calculateGoldPrice(98, gold24kPrice);
-            var gold20kPrice = calculateGoldPrice(90, gold24kPrice);
-            var gold18kPrice = calculateGoldPrice(85, gold24kPrice);
-            var silverPrice = 74500;
+            var gold24kPrice = 63200;
+            var gold22kPrice = calculateGoldPrice(99, gold24kPrice);
+            var gold20kPrice = calculateGoldPrice(95, gold24kPrice);
+            var gold18kPrice = calculateGoldPrice(87, gold24kPrice);
+            var gold85Price = calculateGoldPrice(95, gold24kPrice);
+            var silverPrice = 74300;
 
-            document.getElementById('currentDate').innerHTML = 'Today\'s Date: ' + formattedDate;
-            document.getElementById('gold24k').innerHTML = 'Gold 24K Price: ₹' + gold24kPrice;
-            document.getElementById('gold22k').innerHTML = 'Gold 22K Price: ₹' + gold22kPrice;
-            document.getElementById('gold20k').innerHTML = 'Gold 20K Price: ₹' + gold20kPrice;
-            document.getElementById('gold18k').innerHTML = 'Gold 18K Price: ₹' + gold18kPrice;
-            document.getElementById('silver').innerHTML = 'Silver 100% Price: ₹' + silverPrice;
+            document.getElementById('dateText').innerHTML = 'Date: ' + formattedDate;
+            document.getElementById('gold24k').innerHTML = 'Gold 24K Rate: ₹' + gold24kPrice;
+            document.getElementById('gold22k').innerHTML = 'Gold 22K Rate: ₹' + gold22kPrice;
+            document.getElementById('gold20k').innerHTML = 'Gold 20K Rate: ₹' + gold20kPrice;
+            document.getElementById('gold18k').innerHTML = 'Gold 18K Rate: ₹' + gold18kPrice;
+            document.getElementById('gold85').innerHTML = 'Gold 85% Rate: ₹' + gold85Price;
+            document.getElementById('silver').innerHTML = 'Silver 999 Rate: ₹' + silverPrice;
         }
 
         function calculateGoldPrice(purity, baseGoldPrice) {
-            return Math.round(baseGoldPrice * purity / 100);
+            return Math.round(baseGoldPrice * (purity / 100) / 10) * 10;
         }
 
         // Initial prices update when the page loads
         updatePrices();
     </script>
+    <div id="adminInfo">POSTED BY ADMIN - SAGAR</div>
 </body>
 </html>
