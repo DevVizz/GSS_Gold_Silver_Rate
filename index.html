@@ -91,9 +91,9 @@
             var formattedDate = currentDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
             var gold24kPrice = 63400; // Assuming 65000 as the base gold price
-            var gold22kPrice = calculateGoldPrice(22, gold24kPrice);
-            var gold20kPrice = calculateGoldPrice(20, gold24kPrice);
-            var gold18kPrice = calculateGoldPrice(18, gold24kPrice);
+            var gold22kPrice = calculateGoldPrice(98, gold24kPrice);
+            var gold20kPrice = calculateGoldPrice(90, gold24kPrice);
+            var gold18kPrice = calculateGoldPrice(85, gold24kPrice);
             var silverPrice = 74500;
 
             document.getElementById('currentDate').innerHTML = 'Today\'s Date: ' + formattedDate;
@@ -105,7 +105,7 @@
         }
 
         function calculateGoldPrice(purity, baseGoldPrice) {
-            return Math.round(baseGoldPrice * purity / 24);
+            return Math.round(baseGoldPrice * purity / 100);
         }
 
         // Initial prices update when the page loads
