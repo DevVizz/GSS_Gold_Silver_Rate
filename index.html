@@ -154,7 +154,7 @@
         }
 
         function calculateGoldPrice(purity, baseGoldPrice) {
-            return Math.round(baseGoldPrice * (purity / 100) / 10) * 10;
+            return Math.round(baseGoldPrice * (purity / 100) / 100) * 100;
         }
 
         // Initial prices update when the page loads
