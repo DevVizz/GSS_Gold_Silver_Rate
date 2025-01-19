@@ -134,15 +134,15 @@
     <script>
         function updatePrices() {
             // Manual date input (update as needed)
-            var manualDate = new Date('2024-01-30');
+            var manualDate = new Date('2025-01-19');
             var formattedDate = manualDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-            var gold24kPrice = 64000;
+            var gold24kPrice = 81200;
             var gold22kPrice = calculateGoldPrice(99, gold24kPrice);
             var gold20kPrice = calculateGoldPrice(94, gold24kPrice);
             var gold18kPrice = calculateGoldPrice(87, gold24kPrice);
             var gold85Price = calculateGoldPrice(95, gold24kPrice);
-            var silverPrice = 73300;
+            var silverPrice = 95000;
 
             document.getElementById('dateText').innerHTML = 'Date: ' + formattedDate;
             document.getElementById('gold24k').innerHTML = 'Gold 24K Rate: ₹' + gold24kPrice;
